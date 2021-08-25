@@ -17,7 +17,7 @@ spring:
 
 app:
   jwtSecret: secret
-  jwtExpirationInMs: 3600000
+  jwtExpirationInMs: 36000000
 
 cors:
   allowedOrings: '*'

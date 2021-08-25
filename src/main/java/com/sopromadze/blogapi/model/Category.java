@@ -6,6 +6,7 @@ import com.sopromadze.blogapi.model.audit.UserDateAudit;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
