@@ -14,7 +14,7 @@ build:
 	${INFO} "Building image... $(IMAGE_NAME):$(VERSION)"
 	@ docker build -t $(IMAGE_NAME):$(VERSION) --no-cache .
 
-push: login tag_latest
+push: tag_latest
 	${INFO} "Publishing image... $(IMAGE_NAME):$(VERSION)"
 	@docker push $(IMAGE_NAME):$(VERSION)
 	@docker push $(IMAGE_NAME):latest
@@ -26,7 +26,7 @@ tag_latest:
 
 login:
 	${INFO} "Logging in to DockerHub..."
-	@ echo ${DOCKER_PWD} | docker login -u ${DOCKER_LOGIN} --password-stdin
+	@ docker login -u ${DOCKER_LOGIN}
 	${INFO} "Logged in to DockerHub"
 
 help:
