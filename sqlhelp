@@ -1,0 +1,16 @@
+INSERT INTO users (first_name, last_name, username, `password`, email)
+VALUES
+('testuser1', 'testuser1', 'testuser1', '$2a$10$xcZ6rzRdYl7CWU39LErq9eULaaRV4JJmxdKmwTXASxfKawO/n3QKm', 'testuser1@gmail.com'),
+('testuser2', 'testuser2', 'testuser2', '$2a$10$xcZ6rzRdYl7CWU39LErq9eULaaRV4JJmxdKmwTXASxfKawO/n3QKm', 'testuser2@gmail.com'),
+('testadmin1', 'testadmin1', 'testadmin1', '$2a$10$xcZ6rzRdYl7CWU39LErq9eULaaRV4JJmxdKmwTXASxfKawO/n3QKm', 'testadmin1@gmail.com'),
+('testadmin2', 'testadmin2', 'testadmin2', '$2a$10$xcZ6rzRdYl7CWU39LErq9eULaaRV4JJmxdKmwTXASxfKawO/n3QKm', 'testadmin2@gmail.com');
+
+INSERT INTO user_role (user_id, role_id)
+SELECT id, '1'
+FROM users WHERE username LIKE 'testadmin%';
+
+DELETE FROM user_role where user_id IN (SELECT id FROM users WHERE username LIKE 'testadmin%');
+
+DELETE FROM user_role where id = 18;
+DELETE FROM users where username LIKE 'testuser%';
+DELETE FROM users where username LIKE 'testadmin%';
